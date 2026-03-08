@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --bg-deep: #080608;
+  --bg-mid: #100d12;
+  --bg-surface: #16121a;
+  --bg-card: #1e1824;
+  --curtain-red: #8b1a1a;
+  --curtain-dark: #5a0e0e;
+  --gold: #c9a84c;
+  --gold-dim: rgba(201, 168, 76, 0.18);
+  --gold-glow: rgba(201, 168, 76, 0.35);
+  --cream: #f0e6ce;
+  --muted: #6e6070;
+  --text: #e8ddd0;
+  /* Font variables are injected by next/font in layout.tsx */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--font-serif);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--curtain-dark); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes filmFlicker {
+  0%,89%,91%,96%,100% { opacity: 1; }
+  90% { opacity: 0.82; }
+  97% { opacity: 0.9; }
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes pulseGold {
+  0%,100% { box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  50% { box-shadow: 0 0 28px rgba(201,168,76,0.6), 0 0 60px rgba(201,168,76,0.2); }
+}
+@keyframes curtainWave {
+  0%,100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.015); }
+}
+
+.flicker { animation: filmFlicker 9s infinite; }
+.fade-up { animation: fadeUp 0.8s ease both; }
+.fade-up-1 { animation: fadeUp 0.8s 0.1s ease both; }
+.fade-up-2 { animation: fadeUp 0.8s 0.25s ease both; }
+.fade-up-3 { animation: fadeUp 0.8s 0.4s ease both; }
+.fade-up-4 { animation: fadeUp 0.8s 0.55s ease both; }
